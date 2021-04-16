@@ -1,0 +1,51 @@
+@import url("https://use.fontawesome.com/releases/v5.0.7/css/all.css");
+
+body{
+    margin: 50px;
+   
+}
+section{
+    height: 300px;
+    width: 400px;
+    padding: 30px 30px;
+    border: 1px black;
+    border-style: solid;
+    background-color:rgb(228, 220, 220);
+    text-align: left;
+}
+body .button {
+    cursor: pointer;
+    outline: none;
+}
+.button.fill {
+ border: 1px solid grey;
+ border-radius: 15px;
+ color: gray;
+ background: white;
+ padding: 7px 8px;
+ margin: 2px;
+}
+
+.normal-buttons button
+{
+    background: white;
+    color: rgb(51, 51, 51);
+    border: 1px solid grey;
+ border-radius: 15px;
+ padding: 7px 8px;
+ margin: 2px;
+}
+
+.button.fill.hover:hover{
+    border: 3px solid rgb(162, 214, 162);
+    color: rgb(251, 251, 251);
+    background:rgb(0, 102, 0);
+}
+
+.fa, .fas {
+margin-right: 5px;
+}
+
+
+
+

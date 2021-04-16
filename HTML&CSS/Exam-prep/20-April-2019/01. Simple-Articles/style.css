@@ -1,0 +1,90 @@
+@import url("https://use.fontawesome.com/releases/v5.0.7/css/all.css");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Montserrat&display=swap');
+
+body {
+    font-family: 'Lato', sans-serif;;
+    width: 1000px;
+    height: 600px;
+}
+
+.articles-wrapper {
+    display: inline-flex;
+    text-align: left;
+}
+
+.first-article {
+    width: 500px;
+    height: 250px;
+    background-color: rgba(68,169,248, 0.2);
+    box-shadow: 7px 19px 45px -15px rgba(0,0,0,0.67);
+    text-align: left;
+    padding: 40px;
+    margin: 10px;
+    border-radius: 5px;
+}
+h2{
+    font-family: 'Montserrat', sans-serif;
+    padding: 0px;
+    margin: 0px;
+    margin-bottom: 20px;
+    margin-top: 0px;
+}
+ul{
+    padding: 0px;
+   margin: 0px;
+}
+
+ul li {
+    list-style: none;
+    color: grey;
+    margin: 0px;
+    padding: 5px;
+}
+
+ul li i{
+color: #44a9f8;
+margin-right: 5px;
+padding-right: 10px;
+margin-left: 0px;
+}
+
+.price-article {
+    width: 500px;
+    height: 250px;
+    box-shadow: 7px 19px 45px -15px rgba(0,0,0,0.67);
+    border: 5px solid #44a9f8;
+    padding: 37px;
+    border-radius: 5px;
+    margin: 10px;
+    text-align: center;
+}
+
+.price {
+    font-family: 'Montserrat', sans-serif;
+    color: #44a9f8;
+    font-size: 40px;
+    font-weight: bold;
+    padding-right: 5px;
+}
+
+p {
+    font-size: 20px;
+    padding-bottom: 10px;
+}
+button{
+    font-size: 15px;
+    text-transform: capitalize;
+    background-color: #44a9f8;
+    border-radius: 5px;
+    padding: 10px 45px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    box-shadow: 7px 7px 37px 0px rgba(0,0,0,0.35);
+}
+
+button:hover{
+    background-color: #1b6dac;
+    border: none;
+}

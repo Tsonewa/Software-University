@@ -1,0 +1,32 @@
+body{
+    display: flex;
+}
+.gallery{
+    background-color: lightgrey;
+    width: 800px;
+}
+
+.pictures-wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    text-align:center;
+   justify-content: space-between;
+
+}
+
+section ul li{
+    display: flex;
+    list-style: none;
+    width: 200px;
+    height: 300px;
+    justify-content: space-between;
+    background-color: white;
+    border: 5px solid black;
+}
+
+section ul li img{
+    width: 170px;
+    height: auto;
+    align-items: center;
+    margin: auto;
+}

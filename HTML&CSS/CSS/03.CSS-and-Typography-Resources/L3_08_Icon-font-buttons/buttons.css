@@ -1,0 +1,28 @@
+@import url("https://use.fontawesome.com/releases/v5.0.7/css/all.css");
+
+article{
+   margin-left: 100px;
+   margin-top: 25px;
+   margin-bottom: 25px;
+}
+
+.btn{
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin: 15px;
+    padding: 10px;
+    text-size-adjust: 5px;
+    cursor: pointer;
+}
+.btn:active{
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+.yellow-btn{
+    background-color: #ff8c00;
+}
+.green-btn{
+    background-color: #008000;
+}

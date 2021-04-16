@@ -1,0 +1,20 @@
+html{
+    box-sizing: inherit;
+}
+section {
+    box-sizing: border-box;
+    width: 250px;
+    height: 250px;
+    border: 2px solid lightgreen;
+    border-style: dotted;
+    margin: auto;
+    text-align: center;
+  
+}
+
+p{
+box-sizing: border-box;
+border: 2px solid blue;
+width: 100%;
+padding: 20px;
+}

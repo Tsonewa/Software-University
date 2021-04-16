@@ -1,0 +1,42 @@
+
+
+.picture-wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    flex-basis: 600px;
+    max-height: 1100px;
+}
+
+article{
+    display: flex;
+    flex-basis: 20%;
+    margin: 15px;
+    align-content: space-between;
+    border: 2px solid black;
+    border-radius: 15px;
+    box-shadow: 1px 1px 7px 0.9px;
+}
+
+#bigger{
+    display: flex;
+    min-height: 100%;
+    border-left: 20px solid black;
+    border-right: 20px solid black;
+    flex-basis: 0 0 80%;
+}
+#bigger-pic{
+    display: flex;
+    flex-basis: 0 0 80%;
+    height: 100%;
+    border-radius: 0px;
+    object-fit: fill;
+}
+
+article img{
+    display: flex;
+    object-fit: cover;
+    border-radius: 12px;
+    height: 100%;
+    flex-basis: 0 0 20%;
+}
+

@@ -1,0 +1,52 @@
+@media all and (max-width: 768px){
+
+    body > main > div > ul > li.main-movie-poster{
+        display: none;
+    }
+
+    header {
+        display: unset; 
+        justify-content: unset;
+        padding: 0px;
+        background-color: rgb(18, 18, 18);
+        width: 100%;
+        margin-bottom: 0px;
+    }
+
+    .main-movie ul li {
+        padding: 0px;
+    }
+
+    .main-movie {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .main-movie ul {
+        width: 90%;
+        justify-content: center;
+        display: flex;
+    }
+    .main-movie ul li {
+        display: flex;
+        flex-basis: 80%;
+        max-width: 80%;
+    }
+    ul{
+        align-self: center;
+    }
+
+    .movies{
+        margin: 0px 0 100px 0;
+    }
+
+    .movie{
+        width: 100%;
+        height: 230px;
+    }
+
+    @media all and (max-width: 768px){
+
+        
+    }
+}

@@ -1,0 +1,10 @@
+Constraints 
+Create a HTML table and style it 
+
+Use blockquote tag 
+
+Style its left border with rgb(221,221,221) color 
+
+Style its font to italic 
+
+Use hr tag for the horizontal lines 
