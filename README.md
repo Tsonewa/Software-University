@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ![alt text](https://upload.wikimedia.org/wikipedia/commons/5/55/Software-University-Logo-blue-horizontal.png)
 
 # Software University Curriculum
@@ -23,8 +22,3 @@ The curriculum consists of several professional fields and subsequent specializa
 * **Java WEB**
   - Spring Fundamentals
   - Spring Advanced
-=======
-# Software-University
-
-Contains all homework and exam problems from the curriculum of Software University.
->>>>>>> e5ca94041ddbeabed1847762da45be989322a0cc
