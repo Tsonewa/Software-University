@@ -1,0 +1,128 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url("https://use.fontawesome.com/releases/v5.0.7/css/all.css");
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Montserrat&display=swap');
+
+*{
+  
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    background-color: #66B9F8;
+    padding: 10px;
+}
+
+section{
+    display:  flex;
+    flex-direction: column;
+    flex-basis: 80%;
+    height: 500px;
+
+}
+
+section>h1{
+
+    font-family: 'Lato', sans-serif;
+    font-size: 25px;
+    text-align: center;
+    padding: 30px 0px 30px 10px;
+    color: white;
+    font-weight: 400;
+    word-spacing: 3px;
+   
+}
+
+.articles-wrapper{
+    display: flex;
+    flex-direction: row;
+    flex-basis: 80%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+article{
+    display: flex;
+    box-shadow: 10px 10px 83px -15px rgba(0,0,0,0.74);
+    flex-direction: column;
+    flex-basis: 24%;
+    height: auto;
+    border-radius: 10px;
+}
+
+article img{
+    width: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.article-text-wrapper{
+    background: white;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding-bottom: 10px;
+}
+
+.article-text-wrapper h2{
+    color: #FF9913;
+    font-size: 15px;
+    padding: 10px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.date-wrapper{
+    display: flex;
+    flex-basis: 80%;
+    justify-content: space-between;
+    padding: 2px 20px;
+    color: rgb(194, 191, 191);
+}
+
+.date img{
+    width: 10px;
+}
+
+.time img{
+    width: 15px;
+    position: relative;
+    top: 2px;
+}
+
+.main-text{
+    padding: 10px;
+    font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    color: gray;
+}
+
+a{
+    text-decoration: none;
+    color: #FF9913;
+    padding: 10px;
+    text-transform: uppercase;
+}
+
+.btn{
+    display: flex;
+    border: 2px solid white;
+    border-radius: 20px;
+    align-self: flex-end;
+width: fit-content;
+text-transform: uppercase;
+padding: 10px;
+background: transparent;
+margin-right: 15px;
+margin-top: 15px;
+color: white;
+}
+
+article:hover,
+.btn:hover{
+    cursor: pointer;
+
+}
+
+.fas{
+    color: #FF9913;
+}

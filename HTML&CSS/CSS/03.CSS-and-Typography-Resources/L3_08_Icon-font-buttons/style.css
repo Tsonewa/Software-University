@@ -1,0 +1,32 @@
+@import url("https://use.fontawesome.com/releases/v5.0.7/css/all.css");
+
+body{
+    margin: 80px;
+}
+
+.btn{
+    height: 25px;
+    width: 20px;
+    padding: 10px;
+    color: white;
+    background: #008000;
+    cursor: pointer;
+    outline: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 20px;
+}
+.btn i{
+    margin-right: 5px;
+}
+p{
+    margin: 40px;
+}
+
+.click-btn{
+   background: #008000;
+}
+
+.email-btn{
+    background: #ff8b00;
+}

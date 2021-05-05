@@ -1,0 +1,37 @@
+body {
+    background: rgb(238, 238, 238);
+    color: rgb(51, 51, 51);
+}
+
+header{
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+div, aside, div h1{
+    vertical-align: top;
+    display: inline-block;
+    margin-bottom: 0px;
+}
+
+aside{
+    width: 30%;
+}
+
+div{
+width: 60%;
+}
+
+header div p{
+    vertical-align: top;
+}
+
+article {
+    box-sizing: border-box;
+    max-width: 900px;
+    margin: auto;
+}
+
+article img{
+    width: 60%;
+}

@@ -1,0 +1,15 @@
+body {
+    max-width: 1200px;
+    background: rgb(238, 238, 238);
+    color: rgb(51, 51, 51);
+}
+
+article {
+    box-sizing: border-box;
+    max-width: 900px;
+    margin: auto;
+}
+
+article img{
+    width: 60%;
+}

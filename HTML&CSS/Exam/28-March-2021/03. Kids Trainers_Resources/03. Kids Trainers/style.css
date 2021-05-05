@@ -1,0 +1,278 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Montserrat&display=swap');
+@import url("https://use.fontawesome.com/releases/v5.0.7/css/all.css");
+*{
+    padding: 0px;
+margin: 0px;
+}
+body{
+    font-family: 'Helvetica', sans-serif;
+display: flex;
+flex-direction: column;
+}
+
+h1, h2, h3, h4, h5, h6{
+    font-family: 'Montserrat', sans-serif;
+}
+
+header{
+    display: flex;
+    flex-basis: 100%;
+    justify-content: space-between;
+    padding: 20px 40px;
+    background-color: #41BEAD;
+}
+
+.logo-wrapper {
+display: flex;
+flex-direction: row;
+color: white;
+background: transparent;
+}
+
+.logo-wrapper img{
+    width: 120px;
+    padding-left: 5px;
+}
+
+nav{
+    align-self: center;
+}
+ul{
+display: flex;
+list-style: none;
+
+}
+
+li a{
+    color: white;
+    text-transform: uppercase;
+    padding: 8px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.treiners-txt{
+    background: #FEB302;
+    width: 100%;
+    color: white;
+    text-align: center;
+    height: 200px;
+    text-align: -webkit-center;
+}
+
+.treiners-txt h1{
+    padding: 35px 10px 10px 10px;
+}
+
+.treiners-txt p{
+width: 60%;
+}
+
+.leaders{
+    display: flex;
+    flex-basis: 100%;
+    padding: 50px;
+}
+
+.tutor-info{
+    display: flex;
+    justify-content: space-around;
+    margin: 20px;
+    width: 50%;
+}
+
+.tutor-img-wrapper{
+    display: flex;
+    width: 80px;
+    height: 80px;
+    border: 5px solid #66B9F8;
+    background: transparent;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.tutor-img-wrapper img{
+    object-fit: cover;
+    border-radius: 50%;
+    height: 80px;
+    width: 100px;
+   
+}
+
+.tutor-info-text-wrapper{
+    display: flex;
+    flex-direction: column;
+  
+    width: 80%;
+    align-items: baseline;
+}
+
+.tutor-info-text-wrapper h3{
+color: #66B9F8;
+padding-bottom: 10px;
+}
+
+.tutor-info-text-wrapper h6{
+    font-size: 12px;
+    color: #002B36;
+    opacity: 0.8;
+    padding-bottom: 10px;
+}
+
+.tutor-info-text-wrapper p {
+    color: #6482A4;
+    font-size: 14px;
+  
+}
+
+.treiners{
+    display: flex;
+    flex-basis: 100%;
+    justify-content: center;
+    padding: 50px 20px;
+    place-content: space-evenly;
+}
+
+
+.treiners-info-text h3{
+    font-size: 15px;
+    white-space: nowrap;
+    align-self: center;
+    padding-top: 10px;
+}
+
+.teacher{
+    padding-right: 0px;
+    text-align: -webkit-center;
+}
+
+
+.aplication-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    height: 300px;
+    flex-basis: 100%;
+    padding-bottom: 20px;
+    background-color: #41BEAD;
+}
+
+.aplication-form h1{
+    margin-bottom: 10px;
+}
+
+.aplication-form p{
+    width: 70%;
+    align-self: center;
+    margin-bottom: 10px;
+}
+
+.aplication-form::before{
+    content: '';
+    position: relative;
+    top: -65px;
+    width: 100%;
+    height: 2vh;
+    background: #92CDFB;
+}
+.aplication-form::after {
+    content: '';
+    position: relative;
+    bottom: -80px;
+    width: 100%;
+    height: 2vh;
+    background: #919191;
+}
+
+form{
+    display: flex;
+    flex-direction: row;
+    width: 70%;
+    align-self: center;
+    padding-top: 30px;
+    justify-content: space-between;
+}
+
+input{
+    background: transparent;
+    border-radius: 4px;
+    padding: 12px;
+    color: white;
+    border: 1px solid white
+}
+
+input::placeholder{
+    color: white;
+}
+
+.sent-btn{
+    background: #FEB302;
+    border-radius: 15px;
+    color: white;
+    text-transform: uppercase;
+    
+    padding: 10px 25px;
+    border: none;
+    direction: none;
+    box-shadow: 4px 7px 22px -3px rgba(0,0,0,0.72);
+}
+
+.sent-btn:hover{
+    cursor: pointer;
+}
+
+footer{
+    background: #565656;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 150px;
+}
+
+footer ul{
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    align-self: center;
+    text-align: left;
+}
+
+
+.title{
+    font-size: 15px;
+    color: white;
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+
+footer ul li a{
+    font-size: 12px;
+    text-transform: capitalize;
+    font-weight: 300;
+    padding: 0px;
+
+}
+
+footer div{
+    height: 100px;
+}
+
+.fab{
+    color: white;
+    font-size: 20px;
+    padding-right: 5px;
+}
+
+
+
+
+
+
+
+
+
+

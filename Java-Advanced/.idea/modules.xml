@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/01.Stacks-And-Queues/01.Stacks-And-Queues.iml" filepath="$PROJECT_DIR$/01.Stacks-And-Queues/01.Stacks-And-Queues.iml" />
+      <module fileurl="file://$PROJECT_DIR$/02.Multidimentional-Arrays/02.Multidimentional-Arrays.iml" filepath="$PROJECT_DIR$/02.Multidimentional-Arrays/02.Multidimentional-Arrays.iml" />
+      <module fileurl="file://$PROJECT_DIR$/03.Sets-And-Maps/03.Sets-And-Maps.iml" filepath="$PROJECT_DIR$/03.Sets-And-Maps/03.Sets-And-Maps.iml" />
+      <module fileurl="file://$PROJECT_DIR$/04.Stream-Files-Directories/04.Stream-Files-Directories.iml" filepath="$PROJECT_DIR$/04.Stream-Files-Directories/04.Stream-Files-Directories.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Java-Advanced.iml" filepath="$PROJECT_DIR$/Java-Advanced.iml" />
+      <module fileurl="file://$PROJECT_DIR$/WorkingWithAbstraction/WorkingWithAbstraction.iml" filepath="$PROJECT_DIR$/WorkingWithAbstraction/WorkingWithAbstraction.iml" />
+    </modules>
+  </component>
+</project>

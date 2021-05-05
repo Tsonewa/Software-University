@@ -1,0 +1,21 @@
+@media all and (max-width: 600px){
+   
+    .w3-col.m6 img{
+        display: none;
+    }
+    .w3-col.m6 {
+        width: 100%;
+    }
+
+    .w3-padding-64 {
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
+
+    .w3-col.l6 {
+        width: 100%;
+    }
+
+
+
+}

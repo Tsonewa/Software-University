@@ -1,0 +1,13 @@
+Change the document title to "Photo Gallery Inline Block" 
+
+Create unordered list with class gallery (ul.gallery)  
+
+Add list items with images inside 
+
+The list items must have 
+
+Border width - 0.4rem 
+
+Border color - black 
+
+Border style - solid 

@@ -1,0 +1,29 @@
+table {
+   
+    margin: 50px;
+    padding: 10px;
+    width: 70%;
+}
+
+table, table tr td {
+    border-width: 1px;
+    border-style: solid;
+    padding: 10px;
+    align-items: left;
+}
+table thead th{ 
+    border-width: 1px;
+    border-style: solid;
+    margin: 25px;
+    padding: 10px;
+    background: rgb(241, 241, 241);
+}
+
+table tr:nth-child(odd) td{
+    background-color:rgb(241, 241, 241);
+}
+table tbody tr:hover{
+background: black;
+color: white;
+cursor: pointer;
+}

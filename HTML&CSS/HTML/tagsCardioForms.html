@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+    <style>
+    input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+    </style>
+
+</head>
+
+<body>
+    <form action="form">
+        <fieldset>
+            <legend>Customer Details</legend>
+            <div>
+                <label for="fname">First Name</label>
+                <input type="text" id="fname" autofocus placeholder="George">
+            </div>
+            <div>
+                <label for="lname">Last Name</label>
+                <input type="text" id="lname" placeholder="Davis">
+            </div>
+            <div>
+                <label class="gender">
+                </label>
+                Male<input type="radio" name="gender">
+                Female<input type="radio" name="gender">
+                Other<input type="radio" name="gender">
+            </div>
+            <div>
+                
+                <label class="contact">Prefered contact method</label>
+                Phone<input type="radio" name="contact">
+                Email<input type="radio" name="contact">
+            </div>
+            <div>
+                <label for="email">Email</label>
+            <input type="email" placeholder="tony@gmail.com">
+            </div>
+            <div>
+                <label for="phone">Phone</label>
+                <input type="number" placeholder="+359884556859">
+            </div>
+            <div>
+                <label for="towns">Town</label>
+            <select id="towns">
+                <option value="varna">Varna</option>
+                <option value="sofia">Sofia</option>
+                <option value="burgas">Burgas</option>
+            </select>
+            </div>
+            <div>
+                <label for="age">Age</label>
+                <input type="number" min="18" max="70">
+            </div>
+            <div>
+                <label for="dataList">Programming Languages</label>
+                <input list="lenguages" name="lenguage" id="language">
+                <datalist>
+                    <option value="Java"></option>
+                    <option value="C#"></option>
+                    <option value="JavaScript"></option>
+                </datalist>
+            </div>
+            <div>
+                <label for="textArea"></label>
+                <textarea name="comment" id="comment" cols="20" rows="5" placeholder = 'More information...'></textarea>
+            </div>
+            <div>
+                <label for="checkbox"></label>
+                <input type="checkbox" checked> I agree with Terms and Conditions
+                
+            </div>
+            <div>
+                <label for="submit"></label>
+                <input type="button" value="Send">
+            </div>
+        </fieldset>
+    </form>
+</body>
+</html>

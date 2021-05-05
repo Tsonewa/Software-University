@@ -1,0 +1,181 @@
+@import url("https://use.fontawesome.com/releases/v5.0.7/css/all.css");
+
+
+body{
+    display: flex;
+    height: fit-content;
+    width: 1500px;
+    flex-direction: column;
+}
+
+.nav-title-wrapper{
+    display: inline-flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+}
+
+.nav-title-wrapper h1{
+    width: 30%;
+    padding-left: 20px;
+}
+
+.nav-title-wrapper span{
+    font-size: 11px;
+    color: #404144;
+    font-weight: 200px;
+    border-left: 2px solid lightgray;
+    padding: 5px;
+}
+
+nav{
+    display: flex;
+    align-items: center;
+    justify-items: flex-end;
+    padding-right: 20px;
+}
+
+nav a{
+    margin: 1px;
+    display: inline-flex;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: bold;
+    background-color: #C3C4C6;
+    padding: 12px;
+    color: #404144;
+    
+}
+nav a:hover{
+    color: white;
+    cursor: pointer;
+    background-color: #C7482B;
+}
+
+.img-wrapper{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.img-wrapper img{
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+.img-wrapper p{
+    padding: 30px 40px;
+    margin: 0px;
+    text-align: center;
+    background-color: #C7482B;
+    color: white;
+}
+
+.icons-wrapper, .articles-wrapper{
+    display: flex;
+    height: 350px;
+    background-color: #212121;
+    align-content: space-around;
+    width: 100%;
+    vertical-align: center;
+    align-items: center;
+}
+
+.icons-wrapper article{
+    display: flex;
+    margin: 10px;
+    flex-direction: column;
+    color: #404144;
+    align-items: center;
+}
+.icons-wrapper article i{
+    font-size: xx-large;
+    background-color: #C7482B;
+    color: white;
+    align-self: center;
+    padding: 20px 25px;
+}
+
+.icons-wrapper article h3{
+    color: white;
+    padding-bottom: 30px;
+    padding-top: 0px;
+    margin: 0px;
+}
+
+
+.icons-wrapper article p{
+    color: #404144;
+    text-align: center;
+    margin: 0px;
+    padding-top: 0px;
+}
+
+header{
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+}
+
+
+
+.btn-wrapper{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    color: #404144;
+    align-items: center;
+    margin: 0px;
+    padding-top: 0px;
+    height: 250px;
+    justify-content: center;
+}
+
+.btn-wrapper h1{
+    margin-bottom: 0px;
+    font-size: 30px;
+}
+
+.btn{
+    background: #10732C;
+    color: white;
+    padding: 15px 30px;
+    cursor: pointer;
+    border: none;
+}
+
+.articles-wrapper{
+    height: 300px;
+    justify-content: center;
+}
+
+.articles-wrapper article{
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.articles-wrapper h4{
+    color: white;
+    font-size: 20px;
+}
+
+.articles-wrapper p{
+    text-align: center;
+    margin: 0px;
+    padding: 10px;
+    width: 80%;
+    padding-top: 0px;
+}
+
+footer{
+    flex-direction: column;
+    background-color: #329773;
+    color: lightgray;
+    width: 100%;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    padding-top: 70px;
+}
