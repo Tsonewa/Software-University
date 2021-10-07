@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<categories>
+    <category name="Adult">
+        <products-count>1117</products-count>
+        <average-price>781.31</average-price>
+        <total-revenue>872717.74</total-revenue>
+    </category>
+    <category name="Drugs">
+        <products-count>1083</products-count>
+        <average-price>758.89</average-price>
+        <total-revenue>821867.13</total-revenue>
+    </category>
+</categories>

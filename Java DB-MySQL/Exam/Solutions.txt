@@ -1,0 +1,172 @@
+-- 1. Create database
+
+create table addresses (
+    `id` int primary key auto_increment,
+    `name` varchar(100) not null
+);
+create table clients (
+    `id`int primary key auto_increment,
+    `full_name` varchar(50) not null ,
+    `phone_number` varchar(20) not null 
+);
+create table categories (
+    `id` int primary key auto_increment,
+    `name` varchar(10) not null 
+);
+create table cars (
+    `id` int primary key auto_increment,
+    `make` varchar(20) not null ,
+    `model` varchar(20),
+    `year` int default 0 not null,
+    `mileage` int default 0,
+    `condition` char(1) not null ,
+    `category_id` int not null ,
+    constraint fr_cars_categories
+                  foreign key (`category_id`)
+                  references categories(`id`)
+);
+create table courses (
+    `id` int primary key auto_increment,
+    `from_address_id` int not null ,
+    `start` datetime not null ,
+    `bill` DECIMAL(10,2) default 10,
+    `car_id` int not null,
+    `client_id` int not null ,
+    constraint `fk_courses_addresses`
+                     foreign key (`from_address_id`)
+                     references addresses(`id`),
+    constraint `fk_courses_cars`
+        foreign key (`car_id`)
+            references cars(`id`),
+    constraint `fk_courses_clients`
+        foreign key (`client_id`)
+            references clients(`id`)
+);
+create table  drivers (
+    `id` int primary key auto_increment,
+    `first_name` varchar(30) not null ,
+    `last_name` varchar(30) not null ,
+    `age` int not null ,
+    `rating` float default 5.5
+);
+create table cars_drivers(
+    `car_id` int not null ,
+    `driver_id` int not null,
+    constraint `pk_cars_drivers`
+    primary key(`car_id`, `driver_id`),
+    constraint `fk_cars_drivers_cars`
+        foreign key (`car_id`)
+            references cars(`id`),
+    constraint `fk_cars_drivers_drivers`
+        foreign key (`driver_id`)
+            references drivers(`id`)
+);
+
+
+-- 2. DML
+
+insert into clients (full_name, phone_number)
+(select CONCAT_WS(' ', d.first_name, d.last_name), CONCAT('(088) 9999', d.id * 2)from drivers as d
+    where d.id BETWEEN 10 AND 20
+);
+
+update cars
+set `condition` = 'C'
+where mileage >= 800000 OR mileage IS NULL AND `year` <= 2010 AND make != 'Mercedes-Benz';
+
+DELETE c FROM `clients` AS c
+                  LEFT JOIN `courses` as ce
+                            ON c.`id` = ce.`client_id`
+WHERE ce.id IS NULL and CHAR_LENGTH(c.full_name) > 3;
+
+-- 3. DDL
+
+select make, model, `condition`  from cars
+order by id;
+
+select d.first_name, d.last_name, c.make, c.model, c.mileage from drivers as d
+join cars_drivers as cd on d.id = cd.driver_id
+join cars as c on c.id = cd.car_id
+where c.mileage is not null
+order by c.mileage desc, d.first_name asc;
+
+-- 7 select
+select c2.car_id, c.make, c.mileage, COUNT(c2.id) as count_of_courses, ROUND(AVG(c2.bill), 2) as avg_bill from cars as c
+left join courses as c2 on c.id = c2.car_id
+group by c2.car_id
+order by count_of_courses desc, c.id;
+
+select c.full_name, COUNT(c2.car_id) as count_of_cars, SUM(c2.bill) as total_sum from clients as c
+join courses as c2 on c.id = c2.client_id
+where SUBSTRING(c.full_name, 2, 1) LIKE '%a%'
+group by c2.client_id
+having count_of_cars > 1
+order by c.full_name;
+
+select a.name, IF(HOUR(c.start) BETWEEN 6 AND 20, 'Day', 'Night') as day_time, c.bill, c2.full_name, c3.make, c3.model,  c4.name from courses as c
+join addresses as a on a.id = c.from_address_id
+join clients as c2 on c2.id = c.client_id
+join cars as c3 on c3.id = c.car_id
+join categories as c4 on c4.id = c3.category_id
+order by c.id;
+
+(select COUNT(c.id) from courses as c
+join clients as c2 on c2.id = c.client_id
+where c2.phone_number = '(704) 2502909'
+group by c2.id);
+
+select a.name, c.full_name, (CASE WHEN c2.bill <= 20 THEN 'Low'
+    WHEN c2.bill <= 30 THEN 'Medium' ELSE 'High' END) as level_of_bill,
+       c3.make, c3.`condition`, c4.name as cat_name  from clients as c
+join courses as c2 on c.id = c2.client_id
+join addresses as a on a.id = c2.from_address_id
+join cars as c3 on c3.id = c2.car_id
+join categories as c4 on c4.id = c3.category_id
+where a.name = '700 Monterey Avenue'
+order by c3.make, c.full_name;
+
+select c.id as car_id, c.make, c.mileage, COUNT(c2.id) as count_of_courses, ROUND(avg(c2.bill),2) as avg_bill from cars as c
+left join courses as c2 on c.id = c2.car_id
+group by c.id
+having count_of_courses != 2
+order by count_of_courses desc, c.id;
+
+-- 4. Programmability
+
+DELIMITER $$
+
+CREATE FUNCTION udf_courses_by_client (phone_num VARCHAR (20))
+RETURNS INTEGER
+
+DETERMINISTIC
+BEGIN 
+ DECLARE `count` INT;
+ 
+ SET `count` := (select COUNT(c.id) from courses as c
+join clients as c2 on c2.id = c.client_id
+where c2.phone_number = phone_num
+group by c2.id
+ );
+ 
+ RETURN IF(`count` > 0, `count`, 0);
+END 
+$$
+
+
+DELIMITER $$
+CREATE PROCEDURE udp_courses_by_address(IN address_name VARCHAR(100))
+BEGIN
+
+    select a.name, c.full_name, (CASE WHEN c2.bill <= 20 THEN 'Low'
+    WHEN c2.bill <= 30 THEN 'Medium' ELSE 'High' END) as level_of_bill,
+       c3.make, c3.`condition`, c4.name as cat_name  from clients as c
+join courses as c2 on c.id = c2.client_id
+join addresses as a on a.id = c2.from_address_id
+join cars as c3 on c3.id = c2.car_id
+join categories as c4 on c4.id = c3.category_id
+where a.name = address_name
+order by c3.make, c.full_name;
+END
+$$
+
+CALL udp_find_playmaker (20, 'Skyble'); 

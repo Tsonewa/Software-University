@@ -1,0 +1,1 @@
+ALTER TABLE `employee` CHANGE COLUMN `middle_name` `middle_name` VARCHAR(100)

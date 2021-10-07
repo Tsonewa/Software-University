@@ -1,0 +1,500 @@
+[
+  {
+    "Id": 29,
+    "Name": "Louann Holzworth",
+    "BirthDate": "1960-10-01T00:00:00",
+    "IsYoungDriver": false,
+    "Sales": [
+      {
+        "car": "Dacia Logan"
+      },
+      {
+        "car": "Chevy Caprice"
+      },
+      {
+        "car": "BMW X6 M"
+      },
+      {
+        "car": "Ford Fiesta"
+      },
+      {
+        "car": "Ford Fiesta"
+      }
+    ]
+  },
+  {
+    "Id": 28,
+    "Name": "Donnetta Soliz",
+    "BirthDate": "1963-10-01T00:00:00",
+    "IsYoungDriver": true,
+    "Sales": [
+      {
+        "car": "Opel Astra"
+      },
+      {
+        "car": "BMW M6 E63"
+      },
+      {
+        "car": "Peugeot 306"
+      }
+    ]
+  },
+  {
+    "Id": 17,
+    "Name": "Rema Revelle",
+    "BirthDate": "1970-05-01T00:00:00",
+    "IsYoungDriver": true,
+    "Sales": [
+      {
+        "car": "Seat Mii"
+      }
+    ]
+  },
+  {
+    "Id": 16,
+    "Name": "Carri Knapik",
+    "BirthDate": "1972-02-02T00:00:00",
+    "IsYoungDriver": true,
+    "Sales": [
+      {
+        "car": "Renault Alaskan"
+      },
+      {
+        "car": "Dacia Logan"
+      }
+    ]
+  },
+  {
+    "Id": 27,
+    "Name": "Garret Capron",
+    "BirthDate": "1975-07-01T00:00:00",
+    "IsYoungDriver": false,
+    "Sales": [
+      {
+        "car": "Renault Alaskan"
+      },
+      {
+        "car": "Dacia Logan"
+      }
+    ]
+  },
+  {
+    "Id": 8,
+    "Name": "Teddy Hobby",
+    "BirthDate": "1975-10-01T00:00:00",
+    "IsYoungDriver": true,
+    "Sales": [
+      {
+        "car": "Fiat Panda"
+      }
+    ]
+  },
+  {
+    "Id": 10,
+    "Name": "Audrea Cardinal",
+    "BirthDate": "1976-10-01T00:00:00",
+    "IsYoungDriver": false,
+    "Sales": [
+      {
+        "car": "Toyota Prius"
+      },
+      {
+        "car": "Skoda Citigo"
+      },
+      {
+        "car": "Ford Fiesta"
+      }
+    ]
+  },
+  {
+    "Id": 11,
+    "Name": "Francis Mckim",
+    "BirthDate": "1977-10-01T00:00:00",
+    "IsYoungDriver": true,
+    "Sales": [
+      {
+        "car": "Dacia Duster"
+      },
+      {
+        "car": "Skoda Citigo"
+      },
+      {
+        "car": "Citroen C1"
+      },
+      {
+        "car": "Opel Corsa"
+      },
+      {
+        "car": "Seat Mii"
+      }
+    ]
+  },
+  {
+    "Id": 14,
+    "Name": "Brett Brickley",
+    "BirthDate": "1980-10-01T00:00:00",
+    "IsYoungDriver": true,
+    "Sales": [
+      {
+        "car": "Dacia Duster"
+      },
+      {
+        "car": "BMW M6 E63"
+      }
+    ]
+  },
+  {
+    "Id": 15,
+    "Name": "Kristian Engberg",
+    "BirthDate": "1981-10-03T00:00:00",
+    "IsYoungDriver": false,
+    "Sales": [
+      {
+        "car": "Toyota Prius"
+      }
+    ]
+  },
+  {
+    "Id": 26,
+    "Name": "Hipolito Lamoreaux",
+    "BirthDate": "1982-08-01T00:00:00",
+    "IsYoungDriver": true,
+    "Sales": [
+      {
+        "car": "Opel Omega"
+      },
+      {
+        "car": "Fiat Freemont"
+      },
+      {
+        "car": "Mercedes W210"
+      },
+      {
+        "car": "Alfa Romeo 164"
+      },
+      {
+        "car": "Peugeot 405"
+      },
+      {
+        "car": "Great Wall Haval M4"
+      },
+      {
+        "car": "Seat Ibiza"
+      },
+      {
+        "car": "Renault Espace"
+      }
+    ]
+  },
+  {
+    "Id": 4,
+    "Name": "Zada Attwood",
+    "BirthDate": "1982-10-01T00:00:00",
+    "IsYoungDriver": true,
+    "Sales": [
+      {
+        "car": "BMW M6 E63"
+      },
+      {
+        "car": "Mercedes W212"
+      },
+      {
+        "car": "Ferrari F40"
+      },
+      {
+        "car": "Mercedes W204"
+      },
+      {
+        "car": "Toyota Prius"
+      },
+      {
+        "car": "Peugeot 306"
+      }
+    ]
+  },
+  {
+    "Id": 25,
+    "Name": "Sylvie Mcelravy",
+    "BirthDate": "1983-10-01T00:00:00",
+    "IsYoungDriver": false,
+    "Sales": [
+      {
+        "car": "BMW F20"
+      },
+      {
+        "car": "Ford Pinto"
+      },
+      {
+        "car": "Dacia Duster"
+      }
+    ]
+  },
+  {
+    "Id": 7,
+    "Name": "Rico Peer",
+    "BirthDate": "1984-10-01T00:00:00",
+    "IsYoungDriver": true,
+    "Sales": [
+      {
+        "car": "Ford Pinto"
+      },
+      {
+        "car": "Mercedes W211"
+      },
+      {
+        "car": "Nissan 370Z"
+      }
+    ]
+  },
+  {
+    "Id": 5,
+    "Name": "Hai Everton",
+    "BirthDate": "1985-10-01T00:00:00",
+    "IsYoungDriver": true,
+    "Sales": [
+      {
+        "car": "BMW E88"
+      },
+      {
+        "car": "Opel Insignia"
+      },
+      {
+        "car": "Chevy Impala"
+      }
+    ]
+  },
+  {
+    "Id": 6,
+    "Name": "Lino Subia",
+    "BirthDate": "1985-12-21T00:00:00",
+    "IsYoungDriver": false,
+    "Sales": [
+      {
+        "car": "Nissan GT-R"
+      },
+      {
+        "car": "Ford Torino"
+      },
+      {
+        "car": "Peugeot 308"
+      }
+    ]
+  },
+  {
+    "Id": 24,
+    "Name": "Jimmy Grossi",
+    "BirthDate": "1986-07-01T00:00:00",
+    "IsYoungDriver": true,
+    "Sales": [
+      {
+        "car": "Rolls-Royce Phantom"
+      },
+      {
+        "car": "Peugeot 308"
+      },
+      {
+        "car": "Ferrari 250 GTO"
+      }
+    ]
+  },
+  {
+    "Id": 12,
+    "Name": "Carole Witman",
+    "BirthDate": "1987-10-01T00:00:00",
+    "IsYoungDriver": false,
+    "Sales": [
+      {
+        "car": "Chevy Caprice"
+      },
+      {
+        "car": "Alfa Romeo Giulietta"
+      },
+      {
+        "car": "Nissan GT-R"
+      }
+    ]
+  },
+  {
+    "Id": 13,
+    "Name": "Oren Perlman",
+    "BirthDate": "1988-10-01T00:00:00",
+    "IsYoungDriver": true,
+    "Sales": [
+      {
+        "car": "Citroen C1"
+      }
+    ]
+  },
+  {
+    "Id": 2,
+    "Name": "Natalie Poli",
+    "BirthDate": "1990-10-04T00:00:00",
+    "IsYoungDriver": false,
+    "Sales": [
+      {
+        "car": "BMW F04"
+      }
+    ]
+  },
+  {
+    "Id": 3,
+    "Name": "Marcelle Griego",
+    "BirthDate": "1990-10-04T00:00:00",
+    "IsYoungDriver": true,
+    "Sales": [
+      {
+        "car": "Toyota Prius"
+      }
+    ]
+  },
+  {
+    "Id": 19,
+    "Name": "Yvonne Mccalla",
+    "BirthDate": "1992-03-02T00:00:00",
+    "IsYoungDriver": true,
+    "Sales": [
+      {
+        "car": "Peugeot 206"
+      },
+      {
+        "car": "BMW M6 E63"
+      },
+      {
+        "car": "Chevy Caprice"
+      }
+    ]
+  },
+  {
+    "Id": 30,
+    "Name": "Ann Mcenaney",
+    "BirthDate": "1992-03-02T00:00:00",
+    "IsYoungDriver": true,
+    "Sales": [
+      {
+        "car": "Toyota Corolla"
+      },
+      {
+        "car": "Seat Toledo"
+      },
+      {
+        "car": "Citroen C5"
+      },
+      {
+        "car": "Nissan Altima"
+      }
+    ]
+  },
+  {
+    "Id": 21,
+    "Name": "Cinthia Lasala",
+    "BirthDate": "1992-11-01T00:00:00",
+    "IsYoungDriver": true,
+    "Sales": [
+      {
+        "car": "Mercedes A 160"
+      }
+    ]
+  },
+  {
+    "Id": 1,
+    "Name": "Emmitt Benally",
+    "BirthDate": "1993-11-20T00:00:00",
+    "IsYoungDriver": true,
+    "Sales": [
+      {
+        "car": "Dacia Sandero"
+      },
+      {
+        "car": "Mercedes W211"
+      },
+      {
+        "car": "Ferrari F40"
+      }
+    ]
+  },
+  {
+    "Id": 20,
+    "Name": "Nisha Markwell",
+    "BirthDate": "1994-04-04T00:00:00",
+    "IsYoungDriver": false,
+    "Sales": [
+      {
+        "car": "Nissan GT-R"
+      },
+      {
+        "car": "Rolls-Royce Phantom"
+      },
+      {
+        "car": "Citroen C1"
+      }
+    ]
+  },
+  {
+    "Id": 23,
+    "Name": "Faustina Burgher",
+    "BirthDate": "1994-06-01T00:00:00",
+    "IsYoungDriver": false,
+    "Sales": [
+      {
+        "car": "BMW X6 M"
+      },
+      {
+        "car": "Citroen C8"
+      },
+      {
+        "car": "Dacia Sandero Stepway"
+      }
+    ]
+  },
+  {
+    "Id": 18,
+    "Name": "Taina Achenbach",
+    "BirthDate": "1994-10-01T00:00:00",
+    "IsYoungDriver": false,
+    "Sales": [
+      {
+        "car": "Mercedes A 160"
+      },
+      {
+        "car": "Opel Corsa"
+      }
+    ]
+  },
+  {
+    "Id": 9,
+    "Name": "Johnette Derryberry",
+    "BirthDate": "1995-10-01T00:00:00",
+    "IsYoungDriver": true,
+    "Sales": [
+      {
+        "car": "Citroen C8"
+      },
+      {
+        "car": "Opel Corsa"
+      }
+    ]
+  },
+  {
+    "Id": 22,
+    "Name": "Daniele Zarate",
+    "BirthDate": "1995-10-05T00:00:00",
+    "IsYoungDriver": false,
+    "Sales": [
+      {
+        "car": "Ford Ranger"
+      },
+      {
+        "car": "Ferrari 250 GTO"
+      },
+      {
+        "car": "Fiat Panda 4x4"
+      },
+      {
+        "car": "Rolls-Royce Phantom"
+      },
+      {
+        "car": "Citroen C1"
+      }
+    ]
+  }
+]

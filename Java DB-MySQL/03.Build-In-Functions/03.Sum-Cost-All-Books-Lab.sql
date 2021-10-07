@@ -1,0 +1,1 @@
+SELECT sum(round(cost, 2)) AS total_cost FROM books;

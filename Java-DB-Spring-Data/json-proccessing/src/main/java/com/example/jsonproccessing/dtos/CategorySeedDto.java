@@ -1,0 +1,27 @@
+package com.example.jsonproccessing.dtos;
+
+import com.google.gson.annotations.Expose;
+import org.springframework.stereotype.Component;
+
+import javax.validation.constraints.Size;
+
+@Component
+public class CategorySeedDto {
+@Expose
+private String name;
+
+    public CategorySeedDto() { }
+
+    public CategorySeedDto(String name) {
+        this.name = name;
+    }
+
+    @Size(min = 3, max = 15)
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+}

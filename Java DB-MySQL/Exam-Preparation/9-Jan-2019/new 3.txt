@@ -1,0 +1,171 @@
+--- 9 Jun 2019 Exam Preparation Solutions --
+
+-- 1. Ruk_database creation -- 
+
+create database ruk_database;
+use ruk_database;
+
+create table branches(
+    `id` int primary key auto_increment,
+    `name` varchar(30) not null  unique
+);
+
+create table employees (
+  `id` int primary key auto_increment,
+  `first_name` varchar(20) not null,
+  `last_name` varchar(20) not null ,
+  `salary` decimal(10,2) not null ,
+    `started_on` date not null,
+    `branch_id` int not null,
+    constraint fk_employees_branches
+    foreign key (`branch_id`)
+    references branches(`id`)
+);
+
+create table clients (
+    `id` int primary key auto_increment,
+    `full_name` varchar(50) not null,
+    `age` int not null
+);
+
+create table employees_clients
+(
+    `employee_id` int,
+    `client_id` int,
+    constraint fk_employees_clients_clients
+foreign key (`client_id`)
+references clients(`id`),
+constraint fk_employees_clients_employees
+foreign key (`employee_id`)
+references employees(`id`)
+);
+
+create table bank_accounts (
+    `id` int primary key auto_increment,
+    `account_number` varchar(10) not null,
+    `balance` decimal(10,2) not null,
+    `client_id` int not null unique,
+    constraint fk_bank_accounts_clients
+                           foreign key (`client_id`)
+                           references clients(`id`)
+
+);
+
+create table cards (
+    `id` int primary key auto_increment,
+    `card_number` varchar(19) not null,
+    `card_status` varchar(7) not null,
+    `bank_account_id` int not null,
+    constraint fk_cards_bank_accounts
+                   foreign key (`bank_account_id`)
+                   references bank_accounts(`id`)
+);
+
+
+
+-- 2. DML manipulations -- 
+
+insert into cards (card_number, card_status, bank_account_id)
+(SELECT REVERSE(c.full_name), 'Active', c.id from clients as c
+where c.id BETWEEN 191 AND 200);
+
+UPDATE `employees_clients` as ec
+    JOIN
+    (SELECT ec1.`employee_id`, COUNT(ec1.`client_id`) AS 'count'
+     FROM employees_clients as ec1
+     GROUP BY ec1.employee_id
+     ORDER BY `count`, ec1.`employee_id`) AS s
+SET ec.employee_id = s.employee_id
+WHERE ec.employee_id = ec.client_id;
+
+DELETE emp FROM `employees` AS emp
+LEFT JOIN `employees_clients` AS ec
+ON emp.id = ec.employee_id 
+WHERE ec.client_id IS NULL;
+
+-- 3. Querying -- 
+
+select id, full_name from clients
+order by clients.id;
+
+select id, CONCAT_WS(' ', first_name, last_name), concat('$', salary) as salary, started_on from employees
+where salary > 100000 AND started_on >= '01-01-2018'
+order by salary desc, id;
+
+select cr.id, CONCAT(cr.card_number, ' : ', c.full_name) as card_token from clients as c
+join bank_accounts as ba
+on c.id = ba.client_id
+join cards as cr
+on ba.id = cr.bank_account_id
+order by cr.id desc;
+
+
+select CONCAT_WS(' ', e.first_name, e.last_name), e.started_on, t2.count as `name`
+from employees as e
+join
+(select employee_id, count(client_id) as count from employees_clients
+group by employee_id
+order by count desc limit 5) as t2
+where t2.employee_id = e.id;
+
+select t2.name, count(c2.id) as count_of_cards from branches as br
+    join employees as em on
+    br.id = em.branch_id
+    join employees_clients as ec2
+        on em.id = ec2.employee_id
+    join bank_accounts as ba2
+    on ec2.client_id = ba2.client_id
+    join cards as c2 on ba2.id = c2.bank_account_id
+join
+(select b.name, count(c.id) as count from branches as b
+join employees as e
+on b.id = e.branch_id
+join employees_clients as ec
+on e.id = ec.employee_id
+join bank_accounts as ba
+on ec.client_id = ba.client_id
+join cards as c
+on ba.id = c.bank_account_id
+where c.card_status != 'Active'
+group by b.name
+order by count desc) as t2
+where t2.name = br.name
+group by t2.name
+order by count_of_cards desc;
+
+--4. Programmability -- 
+
+DELIMITER $$
+
+CREATE FUNCTION udf_client_cards_count(name VARCHAR(30))
+    RETURNS INTEGER
+    DETERMINISTIC
+BEGIN
+    DECLARE `count` int;
+
+    SET `count` := (select count(c.id) from clients as c2
+join bank_accounts as ba
+on c2.id = ba.client_id
+join cards as c
+on ba.id = c.bank_account_id
+where c2.full_name = name);
+
+    RETURN `count`;
+END;
+$$
+
+SELECT c.full_name, udf_client_cards_count('Baxy David') as `cards` FROM clients c
+WHERE c.full_name = 'Baxy David';
+
+
+DELIMITER $$
+CREATE PROCEDURE  udp_clientinfo( IN full_name VARCHAR(45))
+BEGIN
+    select c.full_name, c.age, ba.account_number,
+    concat('$', ba.balance) as balance from clients as c
+    join bank_accounts as ba                                                                            on c.id = ba.client_id
+    where c.full_name = full_name;
+END;
+    $$
+
+CALL udp_clientinfo('Huster Wesgate');

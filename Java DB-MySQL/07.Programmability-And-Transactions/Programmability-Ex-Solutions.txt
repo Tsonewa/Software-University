@@ -1,0 +1,314 @@
+-- 1. Employees with Salary Above 35000 -- 
+
+DELIMITER $$
+CREATE PROCEDURE   usp_get_employees_salary_above_35000()
+BEGIN
+    select first_name, last_name from employees
+    where salary > 35000
+    order by first_name, last_name, employee_id;
+END;
+    $$
+
+    call usp_get_employees_salary_above_35000();
+	
+-- 2. Employees with salary above number -- 
+
+DELIMITER $$
+CREATE PROCEDURE   usp_get_employees_salary_above( IN max_salary INT)
+BEGIN
+    select first_name, last_name from employees
+    where salary >= max_salary
+    order by first_name, last_name, employee_id;
+END;
+$$
+call usp_get_employees_salary_above(48100);
+
+--3. Town names Starting With -- 
+
+DELIMITER $$
+CREATE PROCEDURE   usp_get_towns_starting_with( IN prefix varchar(10))
+BEGIN
+    select `name` from towns
+    where name LIKE concat(prefix, '%')
+    order by `name`;
+END;
+$$
+
+call usp_get_towns_starting_with('b');
+
+--4. Employees from Town -- 
+
+DELIMITER $$
+CREATE PROCEDURE usp_get_employees_from_town( IN town_name varchar(15))
+BEGIN
+    select e.first_name, e.last_name from towns
+        join addresses as a
+        on towns.town_id = a.town_id
+        join employees as e
+        on a.address_id = e.address_id
+    where towns.name = town_name
+    order by e.first_name, e.last_name, e.employee_id;
+END;
+$$
+
+call usp_get_employees_from_town('Sofia');
+
+-- 5. Salary level function -- 
+
+DELIMITER $$
+CREATE FUNCTION ufn_get_salary_level(number decimal(10,2))
+    RETURNS VARCHAR(7)
+DETERMINISTIC
+BEGIN
+    RETURN CASE WHEN number < 30000 THEN 'Low'
+                       WHEN number BETWEEN 30000 AND 50000 THEN 'Average'
+                       WHEN number > 50000 THEN 'High'
+                       END;
+END;
+$$
+
+select salary, ufn_get_salary_level(salary) as salary_level from employees;
+
+-- 6. Employees by salary level -- 
+
+DELIMITER $$
+CREATE PROCEDURE  usp_get_employees_by_salary_level( IN salary_level VARCHAR(7))
+BEGIN
+    select e.first_name, e.last_name from employees as e
+    where ufn_get_salary_level(e.salary) = salary_level
+    order by e.first_name desc , e.last_name desc;
+END;
+    $$
+
+call usp_get_employees_by_salary_level('High');
+
+-- 7. Define function -- 
+
+DELIMITER $$
+
+CREATE FUNCTION `usp_get_employees_by_town` (set_of_letters VARCHAR(45), word VARCHAR(45))
+RETURNS BIT
+DETERMINISTIC
+BEGIN 
+ RETURN (SELECT word regexp(CONCAT('^[', set_of_letters, ']+$')));
+END
+$$
+
+-- 8. Find full name -- 
+
+DELIMITER $$
+CREATE PROCEDURE usp_get_holders_full_name()
+BEGIN
+     select CONCAT_WS(' ', first_name, last_name) as full_name from account_holders
+     order by full_name, id;
+END;
+$$
+
+CALL usp_get_holders_full_name();
+
+-- 9. People with balance higher than -- 
+
+
+DELIMITER $$
+CREATE PROCEDURE usp_get_holders_with_balance_higher_than(IN supplied_number INT)
+BEGIN
+     select ah.first_name, ah.last_name from account_holders as ah
+join accounts as a
+on a.account_holder_id = ah.id
+group by ah.id
+having SUM(a.balance) > supplied_number
+order by a.account_holder_id;
+END;
+$$
+
+CALL usp_get_holders_with_balance_higher_than(7000);
+
+
+-- 10. Future Value Function -- 
+
+DELIMITER $$
+
+DELIMITER $$
+
+CREATE FUNCTION ufn_calculate_future_value(`sum` INT, interest_rate float, yearly INT) 
+RETURNS DECIMAL(14,4)
+DETERMINISTIC
+BEGIN 
+ DECLARE result decimal(14,4);
+ 
+ SET result := `sum` * POW((1 + interest_rate), yearly);
+ 
+ RETURN result;
+END ;
+$$
+
+
+-- 11. Calculating interest -- 
+
+DELIMITER $$
+
+CREATE procedure usp_calculate_future_value_for_account(account_id INT, interest_rate decimal(19,4)) 
+BEGIN 
+ SELECT 
+         a.id AS 'account_id', h.first_name, h.last_name, a.balance AS 'current_balance',
+         ufn_calculate_future_value(a.balance, interest_rate, 5) AS 'balance_in_5_years'
+    FROM
+        `account_holders` AS h
+            JOIN
+        `accounts` AS a ON h.id=a.account_holder_id
+    WHERE a.id = account_id;
+END;
+$$
+
+CALL usp_calculate_future_value_for_account(1, 0.1);
+
+-- 12. Deposit Money --
+
+DELIMITER $$
+
+CREATE procedure usp_deposit_money(account_id INT, money_amount decimal(19,4)) 
+BEGIN 
+ start transaction;
+ 
+ if(money_amount > 0)
+ then
+ update accounts
+ set balance = balance + money_amount
+ where id = account_id;
+ 
+ IF(select * from accounts
+where id = account_id) > 0
+ then commit;
+else 
+rollback;
+END if;
+END if;
+end;
+$$
+
+CALL usp_deposit_money(1, 25);
+
+-- 13. Withdraw money -- 
+DEMILITER $$
+CREATE PROCEDURE usp_withdraw_money(
+    account_id INT, money_amount DECIMAL(19, 4))
+BEGIN
+    IF money_amount > 0 THEN
+        START TRANSACTION;
+        
+        UPDATE `accounts` AS a 
+        SET 
+            a.balance = a.balance - money_amount
+        WHERE
+            a.id = account_id;
+        
+        IF (SELECT a.balance 
+            FROM `accounts` AS a 
+            WHERE a.id = account_id) < 0
+            THEN ROLLBACK;
+        ELSE
+            COMMIT;
+        END IF;
+    END IF;
+END;
+$$
+
+-- 14. Transfer money --
+
+DELIMITER $$
+
+CREATE procedure usp_transfer_money(from_account_id INT, to_account_id INT, amount DECIMAL(19,4)) 
+BEGIN 
+
+IF amount > 0 
+        AND from_account_id != to_account_id 
+        AND (SELECT a.id 
+            FROM `accounts` AS a 
+            WHERE a.id = to_account_id) IS NOT NULL
+        AND (SELECT a.id 
+            FROM `accounts` AS a 
+            WHERE a.id = from_account_id) IS NOT NULL
+        AND (SELECT a.balance 
+            FROM `accounts` AS a 
+            WHERE a.id = from_account_id) >= amount
+           
+THEN start transaction;
+ 
+ update accounts
+ set balance = balance - amount
+ where id = from_account_id;
+ 
+ update accounts
+ set balance = balance + amount
+ where id = to_account_id;
+ 
+ IF(select id from accounts
+where id = from_account_id) > 0
+ then commit;
+else 
+rollback;
+END if;
+END if;
+END;
+$$
+
+CALL usp_transfer_money(1, 2, 10);
+CALL usp_transfer_money(2, 1, 10);
+
+SELECT 
+    a.id AS 'account_id', a.account_holder_id, a.balance
+FROM
+    `accounts` AS a
+WHERE
+    a.id IN (1 , 2);
+
+-- 15. Log accounts trigger -- 
+
+CREATE TABLE `logs` (
+    log_id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    account_id INT(11) NOT NULL,
+    old_sum DECIMAL(19, 4) NOT NULL,
+    new_sum DECIMAL(19, 4) NOT NULL
+);
+
+DELIMITER $$
+CREATE TRIGGER `tr_balance_updated`
+AFTER UPDATE ON `accounts`
+FOR EACH ROW
+BEGIN
+    IF OLD.balance <> NEW.balance THEN
+        INSERT INTO `logs` 
+            (`account_id`, `old_sum`, `new_sum`)
+        VALUES (OLD.id, OLD.balance, NEW.balance);
+    END IF;
+END $$
+DELIMITER ;
+
+CALL usp_transfer_money(1, 2, 10);
+CALL usp_transfer_money(2, 1, 10);
+
+
+-- 16. Emails Trigger -- 
+
+CREATE TABLE `notification_emails` (
+    `id` INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    `recipient` INT(11) NOT NULL,
+    `subject` VARCHAR(50) NOT NULL,
+    `body` VARCHAR(255) NOT NULL
+);
+
+DELIMITER $$
+CREATE TRIGGER `tr_notification_emails`
+AFTER INSERT ON `logs`
+FOR EACH ROW
+BEGIN
+    INSERT INTO `notification_emails` 
+        (`recipient`, `subject`, `body`)
+    VALUES (
+        NEW.account_id, 
+        CONCAT('Balance change for account: ', NEW.account_id), 
+        CONCAT('On ', DATE_FORMAT(NOW(), '%b %d %Y at %r'), ' your balance was changed from ', ROUND(NEW.old_sum, 2), ' to ', ROUND(NEW.new_sum, 2), '.'));
+END $$
+DELIMITER ;
+
+SELECT * FROM `notification_emails`;

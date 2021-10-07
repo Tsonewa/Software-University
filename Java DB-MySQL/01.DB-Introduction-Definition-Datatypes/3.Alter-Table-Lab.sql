@@ -1,0 +1,1 @@
+ALTER TABLE `employee` ADD middle_name VARCHAR(45) AFTER first_name
