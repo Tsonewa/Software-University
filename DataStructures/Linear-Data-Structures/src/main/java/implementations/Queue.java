@@ -3,32 +3,35 @@ package implementations;
 import interfaces.AbstractQueue;
 
 import java.util.Iterator;
+import java.util.LinkedList;
 
 public class Queue<E> implements AbstractQueue<E> {
 
+    LinkedList<E> queue = new LinkedList<>();
+
     @Override
     public void offer(E element) {
-
+        this.queue.addLast(element);
     }
 
     @Override
     public E poll() {
-        return null;
+        return this.queue.removeFirst();
     }
 
     @Override
     public E peek() {
-        return null;
+        return this.queue.getFirst();
     }
 
     @Override
     public int size() {
-        return 0;
+        return this.queue.size();
     }
 
     @Override
     public boolean isEmpty() {
-        return false;
+        return this.queue.isEmpty();
     }
 
     @Override

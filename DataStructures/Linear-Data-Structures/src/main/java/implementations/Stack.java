@@ -3,36 +3,39 @@ package implementations;
 import interfaces.AbstractStack;
 
 import java.util.Iterator;
+import java.util.LinkedList;
 
 public class Stack<E> implements AbstractStack<E> {
 
+    LinkedList<E> stack = new LinkedList<>();
+
     @Override
     public void push(E element) {
-
+        this.stack.add(element);
     }
 
     @Override
     public E pop() {
-        return null;
+        return this.stack.removeLast();
     }
 
     @Override
     public E peek() {
-        return null;
+        return this.stack.getLast();
     }
 
     @Override
     public int size() {
-        return 0;
+        return this.stack.size();
     }
 
     @Override
     public boolean isEmpty() {
-        return false;
+        return this.stack.isEmpty();
     }
 
     @Override
     public Iterator<E> iterator() {
-        return null;
+     return null;
     }
 }
