@@ -1,35 +1,19 @@
 import implementations.ArrayList;
 import implementations.Queue;
+import implementations.SinglyLinkedList;
 import implementations.Stack;
 
 public class Main {
     public static void main(String[] args) {
 
-        Stack<String> stack = new Stack<>();
-        Queue<String> queue = new Queue<>();
+        SinglyLinkedList<String> list = new SinglyLinkedList<>();
 
-        stack.push("Pesho");
-        stack.push("Gosho");
-        stack.push("Dicho");
+        list.addFirst("gosho");
+        list.addFirst("pesho");
 
-        System.out.println(stack.size());
-
-        for (int i = stack.size(); i > 0; i--) {
-            System.out.println(stack.pop());
+        for (int i = list.size(); i >  0; i--) {
+            System.out.println(list.getLast());
+            list.removeLast();
         }
-
-        System.out.println(stack.isEmpty());
-
-        queue.offer("Pesho");
-        queue.offer("Gosho");
-        queue.offer("Dicho");
-
-        System.out.println(queue.size());
-
-        for (int i = queue.size(); i > 0; i--) {
-            System.out.println(queue.poll());
-        }
-
-        System.out.println(queue.isEmpty());
     }
 }
