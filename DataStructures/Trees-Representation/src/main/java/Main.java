@@ -11,9 +11,13 @@ public class Main {
                         new Tree<>(3,
                         new Tree<>(4))));
 
-        for (Integer e: tree.orderDfs()) {
-            System.out.println(e);
+                for (Integer e: tree.orderBfs()) {
+            System.out.print(e);
         }
+
+//        for (Integer e: tree.orderDfs()) {
+//            System.out.println(e);
+//        }
 
 //     printTree(tree);
 

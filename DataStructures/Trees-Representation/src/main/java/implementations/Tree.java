@@ -2,8 +2,10 @@ package implementations;
 
 import interfaces.AbstractTree;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 public class Tree<E> implements AbstractTree<E> {
 
@@ -48,8 +50,20 @@ public class Tree<E> implements AbstractTree<E> {
 
     @Override
     public List<E> orderBfs() {
+        List<E> result = new ArrayList<>();
+        ArrayDeque<Tree<E>> treeQueue = new ArrayDeque<>();
+        treeQueue.offer(this.root);
 
-        return null;
+        while(!treeQueue.isEmpty()){
+            Tree<E> current = treeQueue.poll();
+         result.add(current.getKey());
+
+            for (Tree<E> node: current.children) {
+                treeQueue.offer(node);
+            }
+        }
+
+        return result;
     }
 
     @Override
@@ -61,11 +75,12 @@ public class Tree<E> implements AbstractTree<E> {
     }
 
     private void dfs(Tree<E> node, List<E> result) {
-        result.add(node.getKey());
+
 
         for (Tree<E> child: node.children) {
             dfs(child, result);
         }
+        result.add(node.getKey());
     }
 
     @Override
