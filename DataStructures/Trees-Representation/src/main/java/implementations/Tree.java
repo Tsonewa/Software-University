@@ -2,9 +2,24 @@ package implementations;
 
 import interfaces.AbstractTree;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Tree<E> implements AbstractTree<E> {
+
+    private E key;
+    private Tree<E> root;
+    private List<Tree<E>> children;
+
+
+    public Tree(E key, Tree<E>...children) {
+       this.key = key;
+       this.children = new ArrayList<>();
+        for (Tree<E> child: children) {
+            this.children.add(child);
+            child.root = this;
+        }
+    }
 
     @Override
     public List<E> orderBfs() {
